@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-row">
+    <div class="card-img">
+      <img src="{{product.image}}" alt="">
+    </div>
+    <div class="card-text">
+      <h3 class="card-title">{{product.title}}</h3>
+      <p class="card-description">{{product.description}}</p>
+      <div class="card-rating">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+        <span>{{product.rating['rate']}}</span>
+      </div>
+      <p class="card-price">{{product.price}}€</p>
+    </div>
+  </div>
+</div>

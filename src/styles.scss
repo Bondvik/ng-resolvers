@@ -1,1 +1,277 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+:root {
+  --color-base:#444240;
+  --color-border:#8d8d8d;
+
+  --color-white:#ffffff;
+  --color-black:#000000;
+  --color-blue: #4861be;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  min-width: 1200px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: var(--color-base);
+}
+
+.container {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+/* Header */
+
+.header {
+  margin-bottom: 35px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 68px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.logo {
+  display: grid;
+  grid-template-columns: 50px auto;
+  align-items: center;
+
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.header-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.list-item:not(:last-child) {
+  margin-right: 25px;
+}
+
+.list-link {
+  color: inherit;
+  font-size: 18px;
+}
+
+/* Main */
+
+.main {
+  margin-bottom: 45px;
+}
+
+.section-title {
+  margin-bottom: 25px;
+}
+
+/* Products */
+
+.products-list {
+  margin: 0 0 0 -35px;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 45px;
+}
+//flex-basis: calc((100% - кол-во маржинов в строке * значение маржина) / кол-во элементов в строке);
+//https://gist.github.com/luxplanjay/b2cdf8f124fc2c896789a28b6ba16a87
+
+.product-item {
+  margin-left: 35px;
+  flex: 0 0 calc((100% - 35px * 4) / 4);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.product-link {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  order: 2;
+  font-size: 16px;
+  color: var(--color-base);
+  margin-bottom: 15px;
+}
+
+.product-img {
+  max-width: 80px;
+  min-height: 140px;
+  order: 1;
+  margin-bottom: 15px;
+  align-self: center;
+}
+
+.product-price {
+  order: 3;
+  color: var(--color-base);
+}
+
+/* Spinner */
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #000000;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+/* Product */
+
+.card-row {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 35px;
+}
+
+.card-img,
+.card-text {
+  width: 50%;
+}
+
+.card-title {
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.card-description:first-letter {
+  text-transform: uppercase;
+}
+
+.card-description {
+  margin-bottom: 25px;
+}
+
+.card-rating {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 10px;
+  margin-bottom: 25px;
+}
+
+.card-price {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+/* Footer */
+
+.footer-row {
+  display: flex;
+}
+
+.footer-copyright {
+  margin-left: auto;
+}
+
+.footer-link {
+  color: var(--color-base);
+}
